@@ -15,5 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PokerProjekt\PokerProjekt.csproj" />
   </ItemGroup>
 </Project>
