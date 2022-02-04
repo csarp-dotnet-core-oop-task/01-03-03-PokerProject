@@ -1,2 +1,2 @@
-# xx-xx-xx feladat
-## XXXXXXXProjekt 
+# 01-03-03 feladat
+## Poker projekt 
