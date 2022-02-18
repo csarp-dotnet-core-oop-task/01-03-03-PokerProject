@@ -20,20 +20,20 @@ namespace PokerProjekt.Tests
             string actual = "somthing";
             try
             {
-                Prise prise = new Prise(100, 120);
+                Price price = new Price(100, 120);
                 expected = "A játékos jelenlegi bevétele: 100 Ft\r\nA játékos célja 120 Ft elérése.\r\n";
 
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
-                prise.ToConsole();
+                price.ToConsole();
                 actual = sw.ToString();
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
-            Assert.AreEqual(expected, actual, "A Prise->Konstruktor nem tárolja el a paraméterben lévő adatokat vagy a Prise->ToConsole nem megfelően működik.");
+            Assert.AreEqual(expected, actual, "A price->Konstruktor nem tárolja el a paraméterben lévő adatokat vagy a price->ToConsole nem megfelően működik.");
         }
 
         [TestMethod()]
@@ -48,17 +48,17 @@ namespace PokerProjekt.Tests
 
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
-                Prise prise = new Prise(100, 120);
-                prise.Winning(5);
-                prise.ToConsole();
+                Price price = new Price(100, 120);
+                price.Winning(5);
+                price.ToConsole();
                 actual = sw.ToString();
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
-            Assert.AreEqual(expected, actual, "A Prise->Winning nyerés esetén nem jól működik vagy a Prise->ToConsole nem megfelően működik.");
+            Assert.AreEqual(expected, actual, "A price->Winning nyerés esetén nem jól működik vagy a price->ToConsole nem megfelően működik.");
         }
 
 
@@ -74,20 +74,20 @@ namespace PokerProjekt.Tests
 
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
-                Prise prise = new Prise(100, 120);
-                prise.ToConsole();
-                prise.Winning(30);
-                prise.ToConsole();
-                prise.Winning(20);
-                prise.ToConsole();
+                Price price = new Price(100, 120);
+                price.ToConsole();
+                price.Winning(30);
+                price.ToConsole();
+                price.Winning(20);
+                price.ToConsole();
                 actual = sw.ToString();
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
-            Assert.AreEqual(expected, actual, "A Prise->Winning amikor már nyert és megint meghívja a függvényt nem jól működik vagy a Prise->ToConsole nem megfelően működik.");
+            Assert.AreEqual(expected, actual, "A price->Winning amikor már nyert és megint meghívja a függvényt nem jól működik vagy a price->ToConsole nem megfelően működik.");
         }
 
 
@@ -104,19 +104,19 @@ namespace PokerProjekt.Tests
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
 
-                Prise prise = new Prise(100, 120);
-                prise.ToConsole();
-                prise.Losing(5);
-                prise.ToConsole();
+                Price price = new Price(100, 120);
+                price.ToConsole();
+                price.Losing(5);
+                price.ToConsole();
 
                 actual = sw.ToString();
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
-            Assert.AreEqual(expected, actual, "A Prise->Lising nem jól működik vagy a Prise->ToConsole nem megfelően működik.");
+            Assert.AreEqual(expected, actual, "A price->Lising nem jól működik vagy a price->ToConsole nem megfelően működik.");
         }
 
         [TestMethod()]
@@ -131,22 +131,22 @@ namespace PokerProjekt.Tests
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
 
-                Prise prise = new Prise(10, 120);
-                prise.ToConsole();
-                prise.Losing(20);
-                prise.ToConsole();
-                prise.Losing(5);
-                prise.ToConsole();
+                Price price = new Price(10, 120);
+                price.ToConsole();
+                price.Losing(20);
+                price.ToConsole();
+                price.Losing(5);
+                price.ToConsole();
 
                 actual = sw.ToString();
                 int index = DiffersAtIndex(expected, actual);
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
-            Assert.AreEqual(expected, actual, "A Prise->Losing amikor már vesztet és mégegyszer meghívja nem jól működik vagy a Prise->ToConsole nem megfelően működik.");
+            Assert.AreEqual(expected, actual, "A price->Losing amikor már vesztet és mégegyszer meghívja nem jól működik vagy a price->ToConsole nem megfelően működik.");
         }
 
         [TestMethod()]
@@ -162,14 +162,14 @@ namespace PokerProjekt.Tests
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
 
-                Prise priseStart = new Prise(100, 120);
-                Player playerWinner = new Player("Nyerő Jani", priseStart);
+                Price priceStart = new Price(100, 120);
+                Player playerWinner = new Player("Nyerő Jani", priceStart);
 
                 actual = sw.ToString();
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
             Assert.AreEqual(expected, actual, "A Player->Konstruktor nem tárolja el a paraméterben lévő adatokat vagy a Player->ToConsole nem megfelően működik.");
@@ -188,16 +188,16 @@ namespace PokerProjekt.Tests
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
 
-                Prise priseStart = new Prise(100, 120);
-                Player playerWinner = new Player("Nyerő Jani", priseStart);
-                priseStart.ToConsole();
+                Price priceStart = new Price(100, 120);
+                Player playerWinner = new Player("Nyerő Jani", priceStart);
+                priceStart.ToConsole();
                 playerWinner.SumUpNextRound(10);
 
                 actual = sw.ToString();
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
             Assert.AreEqual(expected, actual, "A Player->SumUpNextRound amikor a versenyző nyer nem jól működik vagy a Player->ToConsole nem megfelően működik.");
@@ -215,16 +215,16 @@ namespace PokerProjekt.Tests
                 StringWriter sw = new StringWriter();
                 Console.SetOut(sw);
 
-                Prise priseStart = new Prise(100, 120);
-                Player playerWinner = new Player("Nyerő Jani", priseStart);
-                priseStart.ToConsole();
+                Price priceStart = new Price(100, 120);
+                Player playerWinner = new Player("Nyerő Jani", priceStart);
+                priceStart.ToConsole();
                 playerWinner.SumUpNextRound(-10);
 
                 actual = sw.ToString();
             }
             catch (Exception e)
             {
-                Assert.Fail("Prise osztály kivételt dob!\n" + e.Message);
+                Assert.Fail("price osztály kivételt dob!\n" + e.Message);
             }
 
             Assert.AreEqual(expected, actual, "A Player->SumUpNextRound amikor a versenyző nyer nem jól működik vagy a Player->ToConsole nem megfelően működik.");
