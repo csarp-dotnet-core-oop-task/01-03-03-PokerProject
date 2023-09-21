@@ -7,6 +7,8 @@ A póker asztalnál szeretnénk játszani és ezért egy olyan játékost kifejl
 
 A feladat megoldását a következő UML diagram segíti:
 
+
+![Póker](https://github.com/csarp-dotnet-core-oop-task/01-03-03-PokerProject/blob/main/PokerProjekt/poker.png)
  
 A Price osztályban private elérésű adattagok és public elérésű metódusok vannak!
 A mezők jelentése
